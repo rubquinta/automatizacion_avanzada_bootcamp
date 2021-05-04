@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Bootcamp Tsoft">
+    <test name="Navegador Chrome: Web">
+        <classes>
+            <class name=""></class>
+        </classes>
+    </test>
+    <!--<test name="Navegador Chrome: Android">
+        <classes>
+            <class name="auts.parquearauco.webandroid.testcases.atc01_busquedaporGoogle"></class>
+            <class name="auts.parquearauco.webandroid.testcases.atc02_busquedaChromeAndroid"></class>
+        </classes>
+    </test>-->
+</suite>
