@@ -1,6 +1,6 @@
 package testcases;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import pageobject.pages.JetSmartHomePage;
 
 public class atc01_testCase extends TestBase{

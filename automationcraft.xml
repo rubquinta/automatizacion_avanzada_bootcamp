@@ -2,7 +2,7 @@
 <suite name="Bootcamp Tsoft">
     <test name="Navegador Chrome: Web">
         <classes>
-            <class name="testcases.atc01_testCase"></class>
+            <class name=""></class>
         </classes>
     </test>
 </suite>
