@@ -1,10 +1,10 @@
 package testcases;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +12,7 @@ public class TestBase {
 
     //atributo
     protected WebDriver driver;
-    @Before
+    @BeforeClass
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -20,7 +20,7 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
     }
 
-    @After
+    @AfterClass
     public void close(){
         driver.close();
     }
