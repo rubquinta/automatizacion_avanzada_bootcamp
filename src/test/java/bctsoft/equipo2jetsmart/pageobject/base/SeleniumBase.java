@@ -99,10 +99,20 @@ public class SeleniumBase {
         s.selectByValue(value);
     }
 
+
+    // metodos de esperar de forma parametrizadas.
     public void esperaImplicita(int segundos){
         driver.manage().timeouts().implicitlyWait(segundos, TimeUnit.SECONDS);
     }
 
+    public void esperaExplicita(int segundos,By locator){
+        WebDriverWait wait = new WebDriverWait(driver, segundos);
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+    }
+    public void esperaCamuflada(int segundos) throws InterruptedException{
+        Thread.sleep(segundos);
+    }
 
 
 
