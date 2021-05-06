@@ -1,8 +1,8 @@
-package pageobject.pages;
+package bctsoft.pageobject.pages;
 
+import bctsoft.pageobject.base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import pageobject.base.SeleniumBase;
 
 /**
  * URL: https://jetsmart.com/cl/es/

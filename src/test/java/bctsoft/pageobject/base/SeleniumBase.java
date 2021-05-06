@@ -1,4 +1,4 @@
-package pageobject.base;
+package bctsoft.pageobject.base;
 
 
 import org.openqa.selenium.By;
