@@ -10,11 +10,8 @@ public class AutomaticTestHoteles extends TestBase {
     protected JetSmartHomePage jsHomePage;
 
     protected JetSmartSeleccionHoteles jsSeleccionHotelesPage;
-
     protected JetSmartSeleccionHabitacionPage jsSeleccionHabitacionPage;
-
     protected JetSmartDatosHuespedPage jsDatosHuespedesPage;
-
     protected JetSmartHotelesPaymentPage jsDatosPagoPage;
 
     @Test
