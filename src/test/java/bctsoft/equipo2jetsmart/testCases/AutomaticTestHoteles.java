@@ -58,7 +58,7 @@ public class AutomaticTestHoteles extends TestBase {
     }
 
     @Test
-    public void atc06_test_Verificación_de_alerta_para_datos_faltantes_reserva_de_habitación(){
+    public void atc06_test_Verificación_de_alerta_para_datos_Payment_faltantes_reserva_de_habitación(){
         //precondiciones
         jsHomePage = new JetSmartHomePage(driver);
         jsHomePage.goToUrl("https://jetsmart.com/cl/es/");
