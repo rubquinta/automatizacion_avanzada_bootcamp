@@ -1,4 +1,4 @@
-package bctsoft.equipo2jetsmart.pageobject.testCases;
+package bctsoft.equipo2jetsmart.testCases;
 
 import bctsoft.equipo2jetsmart.pageobject.pages.JetSmartHomePage;
 import bctsoft.equipo2jetsmart.pageobject.pages.JetSmartSeleccionVuelos;

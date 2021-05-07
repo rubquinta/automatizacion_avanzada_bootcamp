@@ -1,9 +1,8 @@
-package bctsoft.equipo2jetsmart.pageobject.testCases;
+package bctsoft.equipo2jetsmart.testCases;
 
 import bctsoft.equipo2jetsmart.pageobject.pages.*;
 import org.junit.Assert;
 import org.junit.Test;
-import bctsoft.equipo2jetsmart.pageobject.base.SeleniumBase;
 
 public class AutomaticTestHoteles extends TestBase {
 

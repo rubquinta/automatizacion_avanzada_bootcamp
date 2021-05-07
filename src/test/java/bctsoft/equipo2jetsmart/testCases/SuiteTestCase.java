@@ -1,4 +1,4 @@
-package bctsoft.equipo2jetsmart.pageobject.testCases;
+package bctsoft.equipo2jetsmart.testCases;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

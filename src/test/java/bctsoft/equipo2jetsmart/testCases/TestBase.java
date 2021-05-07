@@ -1,4 +1,4 @@
-package bctsoft.equipo2jetsmart.pageobject.testCases;
+package bctsoft.equipo2jetsmart.testCases;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
