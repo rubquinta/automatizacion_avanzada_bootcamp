@@ -2,8 +2,9 @@ package bctsoft.equipo2jetsmart.testCases;
 
 import bctsoft.equipo2jetsmart.pageobject.pages.JetSmartHomePage;
 import bctsoft.equipo2jetsmart.pageobject.pages.JetSmartSeleccionVuelos;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
 
 public class AutomaticTestVuelos extends TestBase {
 

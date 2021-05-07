@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Bootcamp Tsoft">
+    <test name="Navegador Chrome: Web">
+        <classes>
+            <class name="bctsoft.equipo2jetsmart.testCases.AutomaticTestVuelos"></class>
+            <class name="bctsoft.equipo2jetsmart.testCases.AutomaticTestHoteles"></class>
+            <class name="bctsoft.equipo2jetsmart.testCases.AutomaticTestTraslados"></class>
+        </classes>
+    </test>
+</suite>

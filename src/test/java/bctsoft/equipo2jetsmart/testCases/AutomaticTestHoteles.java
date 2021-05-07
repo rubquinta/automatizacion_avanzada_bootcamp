@@ -1,8 +1,8 @@
 package bctsoft.equipo2jetsmart.testCases;
 
 import bctsoft.equipo2jetsmart.pageobject.pages.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class AutomaticTestHoteles extends TestBase {
 
@@ -24,10 +24,8 @@ public class AutomaticTestHoteles extends TestBase {
         jsSeleccionHotelesPage.setFiltroCincoEstrellasHoteles();
         jsSeleccionHotelesPage.setFiltroSegundoTramoPriceHoteles();
         jsSeleccionHotelesPage.setFiltroOrdenarPorPrecio();
-
-        Assert.assertEquals("Correcto orden",
-                jsSeleccionHotelesPage.comparaOrdenPreciosHoteles
-                        (jsSeleccionHotelesPage.imprimePreciosHoteles()));
+        jsSeleccionHotelesPage.comparaOrdenPreciosHoteles
+                (jsSeleccionHotelesPage.imprimePreciosHoteles());
     }
 
     @Test

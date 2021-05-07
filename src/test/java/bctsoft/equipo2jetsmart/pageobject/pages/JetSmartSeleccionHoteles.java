@@ -1,9 +1,11 @@
 package bctsoft.equipo2jetsmart.pageobject.pages;
 
 import bctsoft.equipo2jetsmart.pageobject.base.SeleniumBase;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -43,14 +45,18 @@ public class JetSmartSeleccionHoteles  extends SeleniumBase {
 
     }
 
-    public String comparaOrdenPreciosHoteles(List<Double> prices) throws InterruptedException {
+    public void comparaOrdenPreciosHoteles(List<Double> prices) throws InterruptedException {
         Thread.sleep(3000);
+        Boolean desordenado = false;
+
         for (int i = 1; i < prices.size(); i++) {
+
             if(prices.get(i-1)>prices.get(i)){
-                return "No se ordenó correctamente";
+                desordenado = true;
             }
         }
-        return "Correcto orden";
+
+        Assert.assertFalse(desordenado);
     }
 
 
