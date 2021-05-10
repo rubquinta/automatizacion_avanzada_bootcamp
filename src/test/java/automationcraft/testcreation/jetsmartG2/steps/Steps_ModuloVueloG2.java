@@ -19,9 +19,7 @@ public class Steps_ModuloVueloG2 {
         jsHomePage.goToUrl("https://jetsmart.com/cl/es/");
         System.out.println("Cierro PopUp");
         jsHomePage.cerrarModuloSuscribete();
-
     }
-
     @When("En el formulario ingreso origen <Santiago>")
     public void en_el_formulario_ingreso_origen() {
         jsHomePage.seleccionVueloOrigenSantiago();
