@@ -88,8 +88,6 @@
 
     <build>
         <plugins>
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -110,8 +108,8 @@
                     </includes>
                     <parallel>methods</parallel>
                     <threadCount>4</threadCount>
-                    <useUnlimitedThreads>false</useUnlimitedThreads>
-                    <!--<suiteXmlFiles>
+                    <!--<useUnlimitedThreads>false</useUnlimitedThreads>
+                   <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>-->
                 </configuration>
