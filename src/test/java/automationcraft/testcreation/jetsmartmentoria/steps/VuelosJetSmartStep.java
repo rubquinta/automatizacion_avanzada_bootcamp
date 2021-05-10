@@ -1,6 +1,6 @@
-package automationcraft.testcreation.jetsmart.steps;
+package automationcraft.testcreation.jetsmartmentoria.steps;
 
-import automationcraft.testcreation.jetsmart.pages.JetSmartHomePage;
+import automationcraft.testcreation.jetsmartmentoria.pages.JetSmartHomePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

@@ -12,5 +12,5 @@ import io.cucumber.junit.CucumberOptions;
                   "timeline:test-output-thread"},
         tags = "@bootcamp"
         )
-public class jetSmart_regresion001 {
+public class jetSmart_mentoria {
 }

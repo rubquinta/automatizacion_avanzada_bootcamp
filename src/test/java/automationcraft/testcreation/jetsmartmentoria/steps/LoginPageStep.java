@@ -1,10 +1,10 @@
-package automationcraft.testcreation.jetsmart.steps;
+package automationcraft.testcreation.jetsmartmentoria.steps;
 
 import io.cucumber.java.en.*;
 
 import automationcraft.engine.selenium.DriverFactory;
-import automationcraft.testcreation.jetsmart.pages.JetSmartHomePage;
-import automationcraft.testcreation.jetsmart.pages.JetSmartInicioSesionPage;
+import automationcraft.testcreation.jetsmartmentoria.pages.JetSmartHomePage;
+import automationcraft.testcreation.jetsmartmentoria.pages.JetSmartInicioSesionPage;
 import static org.junit.Assert.*;
 
 public class LoginPageStep {

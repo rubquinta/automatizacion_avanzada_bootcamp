@@ -1,4 +1,4 @@
-package automationcraft.testcreation.jetsmart.pages;
+package automationcraft.testcreation.jetsmartmentoria.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
