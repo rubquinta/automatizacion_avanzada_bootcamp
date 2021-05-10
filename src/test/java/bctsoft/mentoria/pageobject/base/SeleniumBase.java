@@ -1,4 +1,4 @@
-package bctsoft.pageobject.base;
+package bctsoft.mentoria.pageobject.base;
 
 
 import org.openqa.selenium.By;

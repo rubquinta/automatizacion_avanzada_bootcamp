@@ -1,10 +1,11 @@
 package automationcraft.testcreation.jetsmart.steps;
 
 import io.cucumber.java.en.*;
-import org.junit.Assert;
+
 import automationcraft.engine.selenium.DriverFactory;
 import automationcraft.testcreation.jetsmart.pages.JetSmartHomePage;
 import automationcraft.testcreation.jetsmart.pages.JetSmartInicioSesionPage;
+import static org.junit.Assert.*;
 
 public class LoginPageStep {
 
@@ -28,12 +29,12 @@ public class LoginPageStep {
     @Then("page title should be {string}")
     public void page_title_should_be(String string) {
         // Write code here that turns the phrase above into concrete actions
-        Assert.assertEquals(string,title);
+        assertEquals(string,title);
     }
 
     @Then("forgot message link should be displayed")
     public void forgot_message_link_should_be_displayed() {
         // Write code here that turns the phrase above into concrete actions
-        Assert.assertTrue(true);
+        assertTrue(true);
     }
 }
