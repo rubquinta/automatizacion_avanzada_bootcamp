@@ -327,11 +327,14 @@ public class JetSmartHomePage extends SeleniumBase {
     }
 
 
-    public void formularioHoteles(){
+    public void entrarFormularioHoteles(){
 
         //PASO 1. Click funcionalidad Hoteles
         click(hoteles);
         switchFrameByIndex(0);
+    }
+
+    public void formularioHotelesBuscar(){
 
         //Paso 2. Click en buscar se abre nueva ventana
         esperaExplicitaElToBeClickleable30s(buscarHoteles);
