@@ -6,7 +6,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class Steps_ModuloVueloG2 {
@@ -27,7 +26,7 @@ public class Steps_ModuloVueloG2 {
 
     @And("Selecciono destino <Buenos Aires>")
     public void selecciono_destino() {
-       jsHomePage.seleccionVueloDestinoArgentina();
+        jsHomePage.seleccionVueloDestinoArgentina();
     }
 
     @And("Presiono en el boton buscar")
