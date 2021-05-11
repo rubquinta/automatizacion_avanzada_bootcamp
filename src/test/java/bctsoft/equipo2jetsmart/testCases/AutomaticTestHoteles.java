@@ -47,10 +47,13 @@ public class AutomaticTestHoteles extends TestBase {
         jsSeleccionHabitacionPage.setFechaRegresoPasada();
         //paso 4
         jsSeleccionHabitacionPage.clickearModificarBusqueda();
-        //pasos 5-7
-
+        //pasos 5
+        jsSeleccionHabitacionPage.seleccionarFechaDeVuelta();
+        //paso 6
+        jsSeleccionHabitacionPage.btnVerDisponibilidadVentanaCambioFecha();
+        //paso 7
         Assert.assertEquals("Alerta de fecha muy lejana SI funciona",
-                jsSeleccionHabitacionPage.seleccionarFechaDeVuelta());
+                jsSeleccionHabitacionPage.verificoAlertaEsperadaPorMasDe30Noches());
 
 
     }

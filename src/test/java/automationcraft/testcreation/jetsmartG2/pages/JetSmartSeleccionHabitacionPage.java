@@ -1,5 +1,6 @@
 package automationcraft.testcreation.jetsmartG2.pages;
 
+
 import bctsoft.equipo2jetsmart.pageobject.base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,28 +31,6 @@ public class JetSmartSeleccionHabitacionPage extends SeleniumBase {
     public void setFechaRegresoPasada() {
         String fecha30N = condBordeFechaOut();
         this.fechaRegresoPasada = By.xpath("//form[@id='hotelpage_availform']//td[contains(@data-date,'"+fecha30N+"')]");
-    }
-
-    public void clickearModificarBusqueda(){
-        esperaExplicitaElToBeClickleable30s(btnModificarBusqueda);
-        click(btnModificarBusqueda);
-    }
-
-    public String seleccionarFechaDeVuelta(){
-        //paso 5
-        click(btnSeleccionarFechaVuelta);
-        //paso 6
-        click(btnFlechita);
-        esperaExplicitaElToBeClickleable30s(fechaRegresoPasada);
-        click(fechaRegresoPasada);
-        //paso 7
-        click(btnVerDisponibilidad);
-
-        esperaExplicitaElToBeClickleable30s(msgErrorEsperado);
-        if(isDisplayed(msgErrorEsperado))
-            return "Alerta de fecha muy lejana SI funciona";
-        else
-            return "Alerta de fecha muy lejana NO funciona";
     }
 
     //FuncionesAuxiliares
@@ -87,7 +66,7 @@ public class JetSmartSeleccionHabitacionPage extends SeleniumBase {
         //Fecha hoy
         Calendar after = Calendar.getInstance();
 
-        String dia = Integer.toString(after.get(Calendar.DAY_OF_MONTH));
+        String dia = Integer.toString(after.get(Calendar.DAY_OF_MONTH)+1);
         String mes = Integer.toString(after.get(Calendar.MONTH)+2);
         String anho = Integer.toString(after.get(Calendar.YEAR));
 
@@ -110,5 +89,32 @@ public class JetSmartSeleccionHabitacionPage extends SeleniumBase {
         click(btnReservare);
     }
 
+    public void clickearModificarBusqueda(){
+        esperaExplicitaElToBeClickleable30s(btnModificarBusqueda);
+        click(btnModificarBusqueda);
+    }
 
+    public void seleccionarFechaDeVuelta(){
+        //paso 5
+        click(btnSeleccionarFechaVuelta);
+        //paso 6
+        click(btnFlechita);
+        esperaExplicitaElToBeClickleable30s(fechaRegresoPasada);
+        click(fechaRegresoPasada);
+
+    }
+
+    public void btnVerDisponibilidadVentanaCambioFecha(){
+        //paso 7
+        click(btnVerDisponibilidad);
+
+    }
+
+    public String verificoAlertaEsperadaPorMasDe30Noches(){
+        esperaExplicitaElToBeClickleable30s(msgErrorEsperado);
+        if(isDisplayed(msgErrorEsperado))
+            return "Alerta de fecha muy lejana SI funciona";
+        else
+            return "Alerta de fecha muy lejana NO funciona";
+    }
 }
