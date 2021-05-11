@@ -1,6 +1,5 @@
 package automationcraft.testcreation.jetsmartG2.pages;
 
-
 import bctsoft.equipo2jetsmart.pageobject.base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -71,13 +70,16 @@ public class JetSmartHomePage extends SeleniumBase {
     private By horaIda ;
     private By opcionHoraVuelta = By.xpath("//ul[contains(@id,'drop-off')]");
     private By horaVuelta ;
-    //private By pasajeros = By.xpath("//ul[@class='ct-list-container']//li[contains(text(),' 1 pasajero')]");
-    private By pasajeros;
+    private By pasajeros = By.xpath("//ul[@class='ct-list-container']//li[contains(text(),' 1 pasajero')]");
+    private By cuadritoDePasajeros = By.cssSelector("#passenger-number-input");
 
     //ojo con este objero se le esta pasando un CSS SELECTOR pero el By es por xpath
     private By buscarTraslado = By.cssSelector(".ct-btn");
     private By seleccionDia ;//FALTA PARAMETRO HORA VUELTA*/
+
+
     //keyword driven
+
     public void cerrarModuloSuscribete(){
         System.out.println("Cerramos Pop Up de Subscrpipcion");
         if(isDisplayed(btnPopUpClose)){
@@ -88,25 +90,12 @@ public class JetSmartHomePage extends SeleniumBase {
 
 
     //Logica Traslados
-    public void setPasajeros(int pasajeros) throws InterruptedException {
-        System.out.println(pasajeros);
-        if(pasajeros==1)
-            this.pasajeros = By.xpath("//ul[@class='ct-list-container']//li[contains(text(),' 1 pasajero')]");
-        else {
-            for (int i = 0; i < pasajeros; i++) {
-                driver.findElement(By.cssSelector("#passenger-number-input")).sendKeys(Keys.ARROW_DOWN);
-                Thread.sleep(1000);
-            }
-            this.pasajeros = By.xpath("//ul[@class='ct-list-container']//li[contains(text(),' "+pasajeros+" pasajeros')]");
-        }
-    }
 
     public void irATraslados(){
         click(traslados);
         switchFrameByIndex(2);
     }
 
-    //formulario Traslados:
     public void seleccionarOrigenYDestino(String origen, String destino) throws InterruptedException {
         //PASO 2 completar el campo origen
         type(origen,campoOrigenTraslado);
@@ -138,10 +127,19 @@ public class JetSmartHomePage extends SeleniumBase {
         }
 
     }
+    
 
-    public void seleccionarPasajeros(int cantidadPasajeros) throws InterruptedException {
-        setPasajeros(cantidadPasajeros);
-        click(pasajeros);
+    public void seleccionarPasajeros(int pasajeros) {
+        if(pasajeros==1){
+            click(this.pasajeros);
+        }
+        else {
+            for (int i = 0; i < pasajeros; i++) {
+                apretarTecla(cuadritoDePasajeros, Keys.ARROW_DOWN);
+            }
+            apretarTecla(cuadritoDePasajeros, Keys.ENTER);
+            apretarTecla(cuadritoDePasajeros, Keys.TAB);
+        }
     }
 
     public void buscarTraslado(){
@@ -150,40 +148,6 @@ public class JetSmartHomePage extends SeleniumBase {
 
     public void clickearSoloIda(){ click(soloIda); }
 
-    /*
-    public void formularioTraslado(String origen, String destino, String fechaIda, String fechaVuelta, String horaIda, String horaVuelta) throws InterruptedException {
-        click(traslados);
-        switchFrameByIndex(2);
-
-
-        if(fechaVuelta.isEmpty()){
-            //PRESIONA EL CAMPO IDA
-            click(soloIda);
-        }
-        //PASO 2 completar el campo origen
-        type(origen,campoOrigenTraslado);
-
-        //PASO 3 seleccionar la primer opción
-        esperaExplicitaElToBeClickleable30s(opcionPrimeraTraslado);
-        click(opcionPrimeraTraslado);
-        //PASO 4 completar el campo destino
-        type(destino,getCampoDestinoTraslado);
-        //PASO 5 seleccionar la primer opción
-        esperaExplicitaElToBeClickleable30s(opcionPrimeraTraslado);
-        click(opcionPrimeraTraslado);
-        //SELECCIONAR FECHA PARTIDA PASO 6 y 7
-        seleccionarFecha(fechaIda, driver, "pickup", horaIda);
-        if(!fechaVuelta.isEmpty()){
-            //SELECCIONAR FECHA REGRESO PASO 8 y 9
-            seleccionarFecha(fechaVuelta, driver, "return", horaVuelta);
-        }
-        //PASO 10 Seleccionar 1 pasajero
-        click(unPasajero);
-
-        //PASO 11 Click en buscar
-        click(buscarTraslado);
-
-    }*/
 
     //keyword Driven Vuelos
     public void seleccionVueloOrigenSantiago(){
@@ -392,22 +356,14 @@ public class JetSmartHomePage extends SeleniumBase {
     }
 
     public void formularioHotelesBuscar(){
-
         //Paso 2. Click en buscar se abre nueva ventana
         esperaExplicitaElToBeClickleable30s(buscarHoteles);
         click(buscarHoteles);
 
-
     }
 
     //Keyword driven
-    public void formularioHoteles(String lugarDestino){
-
-        //PASO 1. Click funcionalidad Hoteles
-        click(hoteles);
-        //Entro en Frame de Formulario Hoteles renderizado por Booking
-        switchFrameByIndex(0);
-
+    public void formularioHotelesLugar(String lugarDestino){
         //PASO 2. Enviar dato "Miami" en input lugar de alojamiento
         limpiar(lugarHospedaje);
         type(lugarDestino,lugarHospedaje);
@@ -415,6 +371,10 @@ public class JetSmartHomePage extends SeleniumBase {
         //PASO 3. Click en primera opción del dropdown dinámico.
         esperaExplicitaElToBeClickleable30s(primerSelectLugarHospedaje);
         click(primerSelectLugarHospedaje);
+
+    }
+
+    public void formularioHotelesFechas(){
 
         //PASO 4.Click en datapicker checkIn
         esperaExplicitaElToBeClickleable30s(fechaCheckIn);
@@ -432,11 +392,11 @@ public class JetSmartHomePage extends SeleniumBase {
         esperaExplicitaElToBeClickleable30s(fechaManana);
         click(fechaManana);
 
-        //PASO 8. Click en Buscar.
-        esperaExplicitaElToBeClickleable30s(buscarHoteles);
+
+    }
+
+    public void buscarAlojamiento(){
         click(buscarHoteles);
-
-
     }
 
 

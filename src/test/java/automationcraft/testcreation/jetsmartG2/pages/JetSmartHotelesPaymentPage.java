@@ -3,6 +3,7 @@ package automationcraft.testcreation.jetsmartG2.pages;
 import bctsoft.equipo2jetsmart.pageobject.base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,15 +21,15 @@ public class JetSmartHotelesPaymentPage extends SeleniumBase {
         click(btnCompletaReserva);
     }
 
-    public String presenciaDeAlert(){
+    public void presenciaDeAlert(){
         esperaExplicitaPresencia30s(alertFaltaDeDatos);
         boolean muestraAlert = isDisplayed(alertFaltaDeDatos);
-
+        boolean alertOk= false;
         if (muestraAlert) {
-            return "Si funciona alert";
-        } else {
-            return "No funciona alert";
+            alertOk = true;
         }
+
+        Assert.assertTrue(alertOk);
     }
 
 

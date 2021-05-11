@@ -1,6 +1,7 @@
 package bctsoft.equipo2jetsmart.pageobject.base;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -112,6 +113,10 @@ public class SeleniumBase {
     }
     public void esperaCamuflada(int segundos) throws InterruptedException{
         Thread.sleep(segundos);
+    }
+
+    public void apretarTecla(By locator, Keys tecla){
+        driver.findElement(locator).sendKeys(tecla);
     }
 
 

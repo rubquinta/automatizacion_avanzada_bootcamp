@@ -23,9 +23,14 @@ public class JetSmartSeleccionTraslados extends SeleniumBase {
     private By btnSeleccionEstandar = By.xpath("//button[contains(@class,'ct-btn-p')]");
     private By logEstadoTraslado = By.cssSelector(".ct-active");
 
-    public String seleccionarTrasladoEstandar(){
+
+    public void seleccionarTraslado(){
         esperaExplicitaElToBeClickleable30s(btnSeleccionEstandar);
         click(btnSeleccionEstandar);
+    }
+
+
+    public String verificarSeleccionDeTraslado(){
           if (getText(logEstadoTraslado).contains("INFORMACIÓN")) {
             return "Exito";
         }
@@ -69,26 +74,6 @@ public class JetSmartSeleccionTraslados extends SeleniumBase {
         }
     }
 
-    /*public String cambioMoneda(String moneda) {
-        int contador = 0;
-        esperaExplicitaElToBeClickleable30s(cambiarBusqueda);
-        click(cambiarBusqueda);
-        seleccionarByValueListaEstatica(listaMoneda, moneda);
-        click(btnRealizarBusqueda);
-        esperaExplicitaElToBeClickleable30s(cambiarBusqueda);
-        List<WebElement> preciosProductos = findElements(preciosTraslados);
-        for (WebElement precio : preciosProductos) {
-            if (precio.getText().contains(moneda)) {
-                System.out.println(precio.getText());
-                contador++;
-            }
-        }
-        if (contador == preciosProductos.size()) {
-            return "Exito";
-        } else {
-            return "fallo";
-        }
-    }*/
 
     public void cambioNewWindow(WebDriver driver) {
 
