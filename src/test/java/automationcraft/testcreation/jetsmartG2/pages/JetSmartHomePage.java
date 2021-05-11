@@ -1,6 +1,5 @@
 package automationcraft.testcreation.jetsmartG2.pages;
 
-
 import bctsoft.equipo2jetsmart.pageobject.base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -392,22 +391,14 @@ public class JetSmartHomePage extends SeleniumBase {
     }
 
     public void formularioHotelesBuscar(){
-
         //Paso 2. Click en buscar se abre nueva ventana
         esperaExplicitaElToBeClickleable30s(buscarHoteles);
         click(buscarHoteles);
 
-
     }
 
     //Keyword driven
-    public void formularioHoteles(String lugarDestino){
-
-        //PASO 1. Click funcionalidad Hoteles
-        click(hoteles);
-        //Entro en Frame de Formulario Hoteles renderizado por Booking
-        switchFrameByIndex(0);
-
+    public void formularioHotelesLugar(String lugarDestino){
         //PASO 2. Enviar dato "Miami" en input lugar de alojamiento
         limpiar(lugarHospedaje);
         type(lugarDestino,lugarHospedaje);
@@ -415,6 +406,10 @@ public class JetSmartHomePage extends SeleniumBase {
         //PASO 3. Click en primera opción del dropdown dinámico.
         esperaExplicitaElToBeClickleable30s(primerSelectLugarHospedaje);
         click(primerSelectLugarHospedaje);
+
+    }
+
+    public void formularioHotelesFechas(){
 
         //PASO 4.Click en datapicker checkIn
         esperaExplicitaElToBeClickleable30s(fechaCheckIn);
@@ -432,11 +427,11 @@ public class JetSmartHomePage extends SeleniumBase {
         esperaExplicitaElToBeClickleable30s(fechaManana);
         click(fechaManana);
 
-        //PASO 8. Click en Buscar.
-        esperaExplicitaElToBeClickleable30s(buscarHoteles);
+
+    }
+
+    public void buscarAlojamiento(){
         click(buscarHoteles);
-
-
     }
 
 
