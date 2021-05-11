@@ -10,9 +10,11 @@ import org.testng.Assert;
 
 public class Steps_ModuloHotelesG2 {
 
-    private JetSmartHomePage jsHomePage = new JetSmartHomePage(DriverFactory.getDriver());
+    protected JetSmartHomePage jsHomePage = new JetSmartHomePage(DriverFactory.getDriver());
 
-    private JetSmartSeleccionHoteles jsSeleccionHotelesPage;
+    protected JetSmartSeleccionHoteles jsSeleccionHotelesPage;
+
+    protected JetSmartSeleccionHabitacionPage jsSeleccionHabitacionPage;
 
     //Comlejidad Baja
 
@@ -51,13 +53,51 @@ public class Steps_ModuloHotelesG2 {
         jsSeleccionHotelesPage.setFiltroOrdenarPorPrecio();
     }
 
-    @Then("Se muestras los valores ordenados de menor a mayor en el ragon solicitado")
+    @Then("Se muestras los valores ordenados de menor a mayor en el rango solicitado")
     public void verifico_orden_de_precios() throws InterruptedException {
         jsSeleccionHotelesPage.comparaOrdenPreciosHoteles
                 (jsSeleccionHotelesPage.imprimePreciosHoteles());
     }
 
     //Complejidad Media
+
+
+
+    @And("Selecciono la primer opcion de hotel disponible")
+    public void selecciono_primera_opcion_Hotel() throws InterruptedException {
+
+        jsSeleccionHotelesPage.esperaImplicita(10);
+        jsSeleccionHotelesPage.seleccionarPrimerHotelEnPantalla();
+        jsSeleccionHabitacionPage = new JetSmartSeleccionHabitacionPage(DriverFactory.getDriver());
+        jsSeleccionHabitacionPage.cambioNewWindow(DriverFactory.getDriver());
+    }
+
+    @And("Abro ventana de Modificar en Pagina Siguiente")
+    public void btn_modificar_busqueda() throws InterruptedException {
+        jsSeleccionHabitacionPage.esperaImplicita(10);
+        jsSeleccionHabitacionPage.clickearModificarBusqueda();
+    }
+
+    @And("Selecciono CheckOut en rango mayor a 30 noches")
+    public void selecciono_fecha_mayor30noches() throws InterruptedException {
+        jsSeleccionHabitacionPage.setFechaRegresoPasada();
+        jsSeleccionHabitacionPage.seleccionarFechaDeVuelta();
+    }
+
+    @And("Busco disponibilidad")
+    public void btn_ver_disponibilidad() throws InterruptedException {
+
+        jsSeleccionHabitacionPage.btnVerDisponibilidadVentanaCambioFecha();
+
+
+    }
+
+    @Then("Se muestra alerta que solo puede ser fecha maxima 30 noches")
+    public void verificoAlertaFechaIncorrecta() throws InterruptedException {
+        Assert.assertEquals("Alerta de fecha muy lejana SI funciona",
+                jsSeleccionHabitacionPage.verificoAlertaEsperadaPorMasDe30Noches());
+
+    }
 
 
 

@@ -37,16 +37,23 @@ public class JetSmartSeleccionHabitacionPage extends SeleniumBase {
         click(btnModificarBusqueda);
     }
 
-    public String seleccionarFechaDeVuelta(){
+    public void seleccionarFechaDeVuelta(){
         //paso 5
         click(btnSeleccionarFechaVuelta);
         //paso 6
         click(btnFlechita);
         esperaExplicitaElToBeClickleable30s(fechaRegresoPasada);
         click(fechaRegresoPasada);
+
+    }
+
+    public void btnVerDisponibilidadVentanaCambioFecha(){
         //paso 7
         click(btnVerDisponibilidad);
 
+    }
+
+    public String verificoAlertaEsperadaPorMasDe30Noches(){
         esperaExplicitaElToBeClickleable30s(msgErrorEsperado);
         if(isDisplayed(msgErrorEsperado))
             return "Alerta de fecha muy lejana SI funciona";
@@ -87,7 +94,7 @@ public class JetSmartSeleccionHabitacionPage extends SeleniumBase {
         //Fecha hoy
         Calendar after = Calendar.getInstance();
 
-        String dia = Integer.toString(after.get(Calendar.DAY_OF_MONTH));
+        String dia = Integer.toString(after.get(Calendar.DAY_OF_MONTH)+1);
         String mes = Integer.toString(after.get(Calendar.MONTH)+2);
         String anho = Integer.toString(after.get(Calendar.YEAR));
 

@@ -17,5 +17,16 @@
       And Filtro resultados por 5 estrellas
       And Filtro resultados por tramo mas economico
       And Presiono mostrar ordenados por precios mas bajo primero
-      Then Se muestras los valores ordenados de menor a mayor en el ragon solicitado
+      Then Se muestras los valores ordenados de menor a mayor en el rango solicitado
+
+    @G2 @Hoteles @Media
+      Scenario: Verifico alerta al modificar fecha a rango mayor del permitido.
+        Given Que soy un usuario e ingreso a la web
+        When Ingreso a Formulario de Hoteles
+        And Selecciono buscar con lugar y fechas por defecto
+        And Selecciono la primer opcion de hotel disponible
+        And Abro ventana de Modificar en Pagina Siguiente
+        And Selecciono CheckOut en rango mayor a 30 noches
+        And Busco disponibilidad
+        Then Se muestra alerta que solo puede ser fecha maxima 30 noches
 
