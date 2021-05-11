@@ -78,7 +78,6 @@ public class Steps_ModuloTrasladosG2 {
         Assert.assertEquals("Exito",resultado);
     }
 
-    //prueba 3
 
     @Then("Hago click en Reservar ahora")
     public void hago_click_en_reservar_ahora(){

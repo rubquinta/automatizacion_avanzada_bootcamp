@@ -91,19 +91,6 @@ public class JetSmartHomePage extends SeleniumBase {
 
 
     //Logica Traslados
-    public void setPasajeros(int pasajeros){
-
-        if(pasajeros==1){
-            click(this.pasajeros);
-        }
-        else {
-            for (int i = 0; i < pasajeros; i++) {
-                apretarTecla(cuadritoDePasajeros, Keys.ARROW_DOWN);
-            }
-            apretarTecla(cuadritoDePasajeros, Keys.ENTER);
-            apretarTecla(cuadritoDePasajeros, Keys.TAB);
-        }
-    }
 
     public void irATraslados(){
         click(traslados);
@@ -141,9 +128,19 @@ public class JetSmartHomePage extends SeleniumBase {
         }
 
     }
+    
 
-    public void seleccionarPasajeros(int cantidadPasajeros) {
-        setPasajeros(cantidadPasajeros);
+    public void seleccionarPasajeros(int pasajeros) {
+        if(pasajeros==1){
+            click(this.pasajeros);
+        }
+        else {
+            for (int i = 0; i < pasajeros; i++) {
+                apretarTecla(cuadritoDePasajeros, Keys.ARROW_DOWN);
+            }
+            apretarTecla(cuadritoDePasajeros, Keys.ENTER);
+            apretarTecla(cuadritoDePasajeros, Keys.TAB);
+        }
     }
 
     public void buscarTraslado(){
