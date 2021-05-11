@@ -22,7 +22,6 @@ public class Steps_ModuloHotelesG2 {
         jsHomePage.goToUrl("https://jetsmart.com/cl/es/");
         System.out.println("Cierro PopUp");
         jsHomePage.cerrarModuloSuscribete();
-
     }
 
     @When("Ingreso a Formulario de Hoteles")
