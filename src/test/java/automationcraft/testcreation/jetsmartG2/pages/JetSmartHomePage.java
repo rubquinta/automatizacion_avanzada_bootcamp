@@ -161,21 +161,9 @@ public class JetSmartHomePage extends SeleniumBase {
         click(fechaVueloVuelta);
     }
 
-    public void formularioVuelo_atc_02(){
+    public void seleccionVueloDestinoArica(){
 
         if (isDisplayed(boxCiudades)){
-            System.out.println("Click en Origen");
-            esperaExplicitaPresencia30s(origenVuelo);
-            click(origenVuelo);
-
-            System.out.println("Se despliega listado de paises");
-            esperaExplicitaPresencia30s(chile);
-            click(chile);
-
-            esperaExplicitaPresencia30s(santiago);
-            System.out.println("Click en Santiago (SCL)");
-            click(santiago);
-
             esperaExplicitaPresencia30s(chile);
             click(chile);
 

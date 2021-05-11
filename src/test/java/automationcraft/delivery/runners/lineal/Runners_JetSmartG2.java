@@ -10,8 +10,9 @@ import org.junit.runner.RunWith;
         glue = {"automationcraft.testcreation.jetsmartG2.steps","automationcraft.engine.bdd"},
         plugin = {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "timeline:test-output-thread"},
-        tags = "@Hoteles"
+        tags = "@Vuelos"
 )
 
 public class Runners_JetSmartG2 {
+
 }
