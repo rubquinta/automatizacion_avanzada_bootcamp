@@ -120,12 +120,6 @@ public class JetSmartHomePage extends SeleniumBase {
             //SELECCIONAR FECHA REGRESO PASO 8 y 9
             seleccionarFecha(fechaVuelta, driver, "return", horaVuelta);
         }
-
-        if(fechaVuelta.isEmpty()){
-            //PRESIONA EL CAMPO IDA
-            click(soloIda);
-        }
-
     }
     
 
@@ -208,6 +202,7 @@ public class JetSmartHomePage extends SeleniumBase {
     }
 
     public void buscarVuelo(){
+        esperaExplicitaElToBeClickleable30s(btnbuscarVuelo);
         click(btnbuscarVuelo);
     }
 
