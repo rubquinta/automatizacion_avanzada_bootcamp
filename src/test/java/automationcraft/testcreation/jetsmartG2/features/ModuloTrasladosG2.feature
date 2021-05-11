@@ -9,5 +9,26 @@ Feature: Modulo de traslados G2
     And elijo la "Fecha de ida" y la "Fecha de Vuelta"
     And Clickeo en buscar
     And Selecciono cambiar busqueda
-    And Cambio la moneda a pesos argentinos
+    And Cambio la moneda a "pesos argentinos"
+    Then Se muestran los precios en pesos argentinos
+
+
+  @G2 @Traslados @Baja
+    Scenario: Despliegue de mensaje de datos imprecisos
+     Given Un usuario que entra al modulo de Traslados de JetSmart Chile
+      When Solicito un traslado de "Buenos Aires" a "Cordoba"
+      And elijo "14-MAYO-2021" como fecha de ida y "21-MAYO-2021" como fecha de vuelta
+      And Clickeo en buscar
+      And Selecciono cambiar busqueda
+      And Cambio la moneda a "pesos argentinos"
+      Then Se muestran los precios en pesos argentinos
+
+
+  @G2 @Traslados @Media
+  Scenario: Despliegue de mensaje de datos imprecisos
+    Given Un usuario que entra al modulo de Traslados de JetSmart Chile
+    When Solicito un traslado solo de ida desde "Ezeiza" a "Urgench, Uzbekistán"
+    And elijo "14-MAYO-2021" como fecha de ida y "" como fecha de vuelta
+    And Selecciono 3 pasajeros
+    And Clickeo en buscar
     Then Se muestran los precios en pesos argentinos
