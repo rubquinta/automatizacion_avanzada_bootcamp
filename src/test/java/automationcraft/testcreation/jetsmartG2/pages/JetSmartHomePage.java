@@ -83,6 +83,24 @@ public class JetSmartHomePage extends SeleniumBase {
             click(btnPopUpClose);
         }
     }
+
+    public void irATraslados(){
+        click(traslados);
+        switchFrameByIndex(2);
+    }
+
+    public void formularioTrasladoOrigen(String origen, String fechaIda, String horaIda) throws InterruptedException {
+        //PASO 2 completar el campo origen
+        type(origen,campoOrigenTraslado);
+
+        //PASO 3 seleccionar la primer opción
+        esperaExplicitaElToBeClickleable30s(opcionPrimeraTraslado);
+        click(opcionPrimeraTraslado);
+
+        seleccionarFecha(fechaIda, driver, "pickup", horaIda);
+
+
+    }
     public void formularioTraslado(String origen, String destino, String fechaIda, String fechaVuelta, String horaIda, String horaVuelta) throws InterruptedException {
         click(traslados);
         switchFrameByIndex(2);

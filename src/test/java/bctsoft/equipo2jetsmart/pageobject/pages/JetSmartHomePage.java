@@ -82,6 +82,12 @@ public class JetSmartHomePage extends SeleniumBase {
             click(btnPopUpClose);
         }
     }
+
+    public void irATraslados(){
+        click(traslados);
+        switchFrameByIndex(2);
+    }
+
     public void formularioTraslado(String origen, String destino, String fechaIda, String fechaVuelta, String horaIda, String horaVuelta) throws InterruptedException {
         click(traslados);
         switchFrameByIndex(2);
