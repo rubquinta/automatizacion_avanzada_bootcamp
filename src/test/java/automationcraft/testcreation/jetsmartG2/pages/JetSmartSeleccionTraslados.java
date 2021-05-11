@@ -45,7 +45,31 @@ public class JetSmartSeleccionTraslados extends SeleniumBase {
     }
 
 
+    public void modificarBusqueda(){
+        esperaExplicitaElToBeClickleable30s(cambiarBusqueda);
+        click(cambiarBusqueda);
+    }
+
     public String cambioMoneda(String moneda) {
+        int contador = 0;
+        seleccionarByValueListaEstatica(listaMoneda, moneda);
+        click(btnRealizarBusqueda);
+        esperaExplicitaElToBeClickleable30s(cambiarBusqueda);
+        List<WebElement> preciosProductos = findElements(preciosTraslados);
+        for (WebElement precio : preciosProductos) {
+            if (precio.getText().contains(moneda)) {
+                System.out.println(precio.getText());
+                contador++;
+            }
+        }
+        if (contador == preciosProductos.size()) {
+            return "Exito";
+        } else {
+            return "fallo";
+        }
+    }
+
+    /*public String cambioMoneda(String moneda) {
         int contador = 0;
         esperaExplicitaElToBeClickleable30s(cambiarBusqueda);
         click(cambiarBusqueda);
@@ -64,7 +88,8 @@ public class JetSmartSeleccionTraslados extends SeleniumBase {
         } else {
             return "fallo";
         }
-    }
+    }*/
+
     public void cambioNewWindow(WebDriver driver) {
 
         //Imprimo foco de driver actual
