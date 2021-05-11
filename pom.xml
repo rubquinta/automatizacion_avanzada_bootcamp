@@ -112,7 +112,7 @@
                     <threadCount>4</threadCount>
                     <useUnlimitedThreads>false</useUnlimitedThreads>
                     <!--<suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>testngEquipo2.xml</suiteXmlFile>
                     </suiteXmlFiles>-->
                 </configuration>
             </plugin>

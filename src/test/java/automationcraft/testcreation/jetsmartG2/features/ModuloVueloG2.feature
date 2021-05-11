@@ -24,5 +24,19 @@
     And Selecciono destino <Arica>
     And Ingreso fecha de ida y vuelta
     And Presiono en el boton buscar
-    And Presiono en continuar, sin seleccionar vuelos.
+    And Presiono en continuar
     Then App muestra mensaje de error
+
+    @G2 @Vuelos @Alta
+  Scenario: ingreso de formulario pasajero incompleto
+    Given Que soy un usuario e ingreso a la web <JetSmart>
+      When En el formulario ingreso origen <Santiago>
+      And Selecciono destino <Buenos Aires>
+      And Ingreso fecha de ida y vuelta
+      And Presiono en el boton buscar
+      And Selecciono mis vuelos
+      And Presiono en continuar
+      And Ingreso datos de pasajero sin fecha de nac.
+      And Hacemos click en continuar
+      Then App muestra alerta por datos faltantes
+
