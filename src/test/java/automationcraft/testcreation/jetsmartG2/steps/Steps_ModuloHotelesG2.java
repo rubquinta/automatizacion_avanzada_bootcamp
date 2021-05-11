@@ -6,6 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.messages.internal.com.google.protobuf.MapEntry;
 import org.testng.Assert;
 
 public class Steps_ModuloHotelesG2 {
@@ -16,22 +17,18 @@ public class Steps_ModuloHotelesG2 {
 
     protected JetSmartSeleccionHabitacionPage jsSeleccionHabitacionPage;
 
-    //Comlejidad Baja
+    protected JetSmartDatosHuespedPage jsDatosHuespedPage;
 
-    @Given("Que soy un usuario e ingreso a la web")
-    public void que_soy_un_usuario_e_ingreso_a_la_web() {
-        System.out.println("Ingreso a la web");
-        jsHomePage.goToUrl("https://jetsmart.com/cl/es/");
-        System.out.println("Cierro PopUp");
-        jsHomePage.cerrarModuloSuscribete();
-    }
+    protected JetSmartHotelesPaymentPage jsPaymentPage;
+
+    //Comlejidad Baja
 
     @When("Ingreso a Formulario de Hoteles")
     public void click_funcionalidad_hoteles() {
         jsHomePage.entrarFormularioHoteles();
     }
 
-    @And("Selecciono buscar con lugar y fechas por defecto")
+    @And("Selecciono buscar alojamiento")
     public void buscar_alojamiento_por_defecto() {
         jsHomePage.formularioHotelesBuscar();
         jsSeleccionHotelesPage = new JetSmartSeleccionHoteles(DriverFactory.getDriver());
@@ -98,6 +95,62 @@ public class Steps_ModuloHotelesG2 {
                 jsSeleccionHabitacionPage.verificoAlertaEsperadaPorMasDe30Noches());
 
     }
+
+    //Complejidad ALta
+
+    @And("Elijo {string} como lugar de alojamiento")
+    public void formularioLugarAlojamiento(String lugarDestino) throws InterruptedException{
+        jsHomePage.formularioHotelesLugar(lugarDestino);
+    }
+
+    @And("Selecciono fecha Hoy y Mañana como fechas checkInOut respectivamente")
+    public void formularioFechasAlojamiento() throws InterruptedException{
+        jsHomePage.formularioHotelesFechas();
+    }
+
+    @And("Presiono Buscar Hoteles")
+    public void btnBuscarHoteles(){
+        jsHomePage.buscarAlojamiento();
+    }
+
+
+    @And("Selecciono 1 Habitacion la primera de las opciones")
+    public void seleccionHabitacion() throws InterruptedException{
+        jsSeleccionHabitacionPage.seleccionaUnaHabitacion();
+    }
+
+    @And("Presiono en Reservare")
+    public void seleccionReservar() throws InterruptedException{
+        jsSeleccionHabitacionPage.clickReservare();
+    }
+
+    @And("Lleno formulario de huesped datos nombre: {string}, quintana: {string}, email: {string}")
+    public void formularioDatosHuesped(String nombre, String apellido, String correo) throws InterruptedException{
+        jsDatosHuespedPage = new JetSmartDatosHuespedPage(DriverFactory.getDriver());
+        jsDatosHuespedPage.cambioNewWindow(DriverFactory.getDriver());
+        jsDatosHuespedPage.esperaImplicita(10);
+        jsDatosHuespedPage.formularioDatosHab(nombre, apellido, correo);
+    }
+
+    @And("Presiono Siguiente Ultimos Datos")
+    public void btnSiguienteUltimosDatos(){
+        jsDatosHuespedPage.clickReservare();
+    }
+
+    @And("Presiono Completar reserva sin llenar datos de pago")
+    public void btnCompletarPaymentPage(){
+        jsPaymentPage = new JetSmartHotelesPaymentPage(DriverFactory.getDriver());
+        jsPaymentPage.cambioNewWindow(DriverFactory.getDriver());
+        jsPaymentPage.clickRealizarReserva();
+    }
+
+    @Then("Se muestra alerta que faltan de datos de pago")
+    public void verificoAlertaPorFataDeDatosPayment(){
+        jsPaymentPage.presenciaDeAlert();
+    }
+
+
+
 
 
 
