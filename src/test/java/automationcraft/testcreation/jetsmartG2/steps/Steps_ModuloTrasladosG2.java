@@ -38,7 +38,6 @@ public class Steps_ModuloTrasladosG2 {
 
     @And("Clickeo en buscar")
     public void clickeo_en_buscar() throws InterruptedException {
-        jsHomePage.seleccionarPasajeros(1);
         jsHomePage.buscarTraslado();
         jsSecondPage = new JetSmartSeleccionTraslados(DriverFactory.getDriver());
         jsSecondPage.cambioNewWindow(DriverFactory.getDriver());
@@ -51,12 +50,12 @@ public class Steps_ModuloTrasladosG2 {
 
     @And("Cambio la moneda a {string}")
     public void cambio_la_moneda_a_pesos_argentinos(String moneda) {
-        resultado = jsSecondPage.cambioMoneda("ARS");
+        resultado = jsSecondPage.cambioMoneda(moneda);
     }
 
     @Then("Se muestran los precios en pesos argentinos")
     public void se_muestran_los_precios_en_pesos_argentinos() {
-        Assert.assertEquals("Exito",resultado);
+       Assert.assertEquals("Exito",resultado);
     }
 
 
@@ -69,8 +68,22 @@ public class Steps_ModuloTrasladosG2 {
     }
 
     @And("Selecciono {int} pasajeros")
-    public void selecciono_pasajeros(int pasajeros) throws InterruptedException {
+    public void selecciono_pasajeros(int pasajeros) {
        jsHomePage.seleccionarPasajeros(pasajeros);
+    }
+
+    @Then("Se muestra cartel pidiendo precisar datos")
+    public void se_muestra_carteñ_pidiendo_precisar_datos(){
+        resultado = jsSecondPage.verificarAlertaOrigen();
+        Assert.assertEquals("Exito",resultado);
+    }
+
+
+    @Then("Hago click en Reservar ahora")
+    public void hago_click_en_reservar_ahora(){
+        jsSecondPage.seleccionarTraslado();
+        resultado = jsSecondPage.verificarSeleccionDeTraslado();
+        Assert.assertEquals("Exito", resultado);
     }
 
 }
