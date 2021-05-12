@@ -24,6 +24,7 @@ public class JetSmartSeleccionTraslados extends SeleniumBase {
     private By logEstadoTraslado = By.cssSelector(".ct-active");
 
 
+
     public void seleccionarTraslado(){
         esperaExplicitaElToBeClickleable30s(btnSeleccionEstandar);
         click(btnSeleccionEstandar);
@@ -31,6 +32,7 @@ public class JetSmartSeleccionTraslados extends SeleniumBase {
 
 
     public String verificarSeleccionDeTraslado(){
+
           if (getText(logEstadoTraslado).contains("INFORMACIÓN")) {
             return "Exito";
         }
@@ -50,6 +52,7 @@ public class JetSmartSeleccionTraslados extends SeleniumBase {
     }
 
 
+
     public void modificarBusqueda(){
         esperaExplicitaElToBeClickleable30s(cambiarBusqueda);
         click(cambiarBusqueda);
@@ -57,6 +60,7 @@ public class JetSmartSeleccionTraslados extends SeleniumBase {
 
     public String cambioMoneda(String moneda) {
         int contador = 0;
+
         seleccionarByValueListaEstatica(listaMoneda, moneda);
         click(btnRealizarBusqueda);
         esperaExplicitaElToBeClickleable30s(cambiarBusqueda);
@@ -73,7 +77,6 @@ public class JetSmartSeleccionTraslados extends SeleniumBase {
             return "fallo";
         }
     }
-
 
     public void cambioNewWindow(WebDriver driver) {
 

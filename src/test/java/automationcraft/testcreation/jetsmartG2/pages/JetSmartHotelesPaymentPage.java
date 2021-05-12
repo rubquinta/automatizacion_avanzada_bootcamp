@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -20,6 +21,7 @@ public class JetSmartHotelesPaymentPage extends SeleniumBase {
     public void clickRealizarReserva(){
         click(btnCompletaReserva);
     }
+
 
     public void presenciaDeAlert(){
         esperaExplicitaPresencia30s(alertFaltaDeDatos);

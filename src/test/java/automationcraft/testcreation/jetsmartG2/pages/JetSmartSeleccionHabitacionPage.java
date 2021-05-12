@@ -1,6 +1,5 @@
 package automationcraft.testcreation.jetsmartG2.pages;
 
-
 import bctsoft.equipo2jetsmart.pageobject.base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,6 +31,7 @@ public class JetSmartSeleccionHabitacionPage extends SeleniumBase {
         String fecha30N = condBordeFechaOut();
         this.fechaRegresoPasada = By.xpath("//form[@id='hotelpage_availform']//td[contains(@data-date,'"+fecha30N+"')]");
     }
+
 
     //FuncionesAuxiliares
     public void cambioNewWindow(WebDriver driver) {
@@ -67,6 +67,7 @@ public class JetSmartSeleccionHabitacionPage extends SeleniumBase {
         Calendar after = Calendar.getInstance();
 
         String dia = Integer.toString(after.get(Calendar.DAY_OF_MONTH)+1);
+
         String mes = Integer.toString(after.get(Calendar.MONTH)+2);
         String anho = Integer.toString(after.get(Calendar.YEAR));
 
@@ -88,6 +89,7 @@ public class JetSmartSeleccionHabitacionPage extends SeleniumBase {
     public void clickReservare(){
         click(btnReservare);
     }
+
 
     public void clickearModificarBusqueda(){
         esperaExplicitaElToBeClickleable30s(btnModificarBusqueda);
@@ -117,4 +119,5 @@ public class JetSmartSeleccionHabitacionPage extends SeleniumBase {
         else
             return "Alerta de fecha muy lejana NO funciona";
     }
+
 }

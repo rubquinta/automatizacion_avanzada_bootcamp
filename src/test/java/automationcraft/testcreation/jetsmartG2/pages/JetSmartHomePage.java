@@ -77,26 +77,24 @@ public class JetSmartHomePage extends SeleniumBase {
     private By buscarTraslado = By.cssSelector(".ct-btn");
     private By seleccionDia ;//FALTA PARAMETRO HORA VUELTA*/
 
-
     //keyword driven
-
     public void cerrarModuloSuscribete(){
         System.out.println("Cerramos Pop Up de Subscrpipcion");
         if(isDisplayed(btnPopUpClose)){
             esperaExplicitaElToBeClickleable30s(btnPopUpClose);
             click(btnPopUpClose);
         }
-    }
+
 
 
     //Logica Traslados
-
     public void irATraslados(){
         click(traslados);
         switchFrameByIndex(2);
     }
 
     public void seleccionarOrigenYDestino(String origen, String destino) throws InterruptedException {
+
         //PASO 2 completar el campo origen
         type(origen,campoOrigenTraslado);
 
@@ -104,13 +102,11 @@ public class JetSmartHomePage extends SeleniumBase {
         esperaExplicitaElToBeClickleable30s(opcionPrimeraTraslado);
         click(opcionPrimeraTraslado);
 
-
         //PASO 4 completar el campo destino
         type(destino,getCampoDestinoTraslado);
         //PASO 5 seleccionar la primer opción
         esperaExplicitaElToBeClickleable30s(opcionPrimeraTraslado);
         click(opcionPrimeraTraslado);
-
     }
 
     public void seleccionarFechasDeIdayVuelta(String fechaIda, String fechaVuelta, String horaIda, String horaVuelta) throws InterruptedException {
@@ -120,14 +116,12 @@ public class JetSmartHomePage extends SeleniumBase {
             //SELECCIONAR FECHA REGRESO PASO 8 y 9
             seleccionarFecha(fechaVuelta, driver, "return", horaVuelta);
         }
-
         if(fechaVuelta.isEmpty()){
             //PRESIONA EL CAMPO IDA
             click(soloIda);
         }
 
-    }
-    
+    }    
 
     public void seleccionarPasajeros(int pasajeros) {
         if(pasajeros==1){
@@ -152,15 +146,14 @@ public class JetSmartHomePage extends SeleniumBase {
     //keyword Driven Vuelos
     public void seleccionVueloOrigenSantiago(){
 
+
         if (isDisplayed(boxCiudades)) {
             System.out.println("Click en Origen");
             esperaExplicitaElToBeClickleable30s(origenVuelo);
             click(origenVuelo);
-
             System.out.println("Se despliega listado de paises");
             esperaExplicitaPresencia30s(chile);
             click(chile);
-
             esperaExplicitaPresencia30s(santiago);
             System.out.println("Click en Santiago (SCL)");
             click(santiago);
@@ -173,15 +166,12 @@ public class JetSmartHomePage extends SeleniumBase {
             esperaExplicitaPresencia30s(argentina);
             System.out.println("Click en Argentina (ARG)");
             click(argentina);
-
             esperaExplicitaElToBeClickleable30s(buenosAires);
             System.out.println("Click en Buenos Aires (BUE)");
             click(buenosAires);
         }
 
     }
-
-
 
     public void fechasVuelo(){
 
@@ -194,16 +184,26 @@ public class JetSmartHomePage extends SeleniumBase {
         click(fechaVueloVuelta);
     }
 
-    public void seleccionVueloDestinoArica(){
+    public void formularioVuelo_atc_02(){
 
         if (isDisplayed(boxCiudades)){
+            System.out.println("Click en Origen");
+            esperaExplicitaPresencia30s(origenVuelo);
+            click(origenVuelo);
+
+            System.out.println("Se despliega listado de paises");
             esperaExplicitaPresencia30s(chile);
             click(chile);
 
+            esperaExplicitaPresencia30s(santiago);
+            System.out.println("Click en Santiago (SCL)");
+            click(santiago);
+
+            esperaExplicitaPresencia30s(chile);
+            click(chile);
             esperaExplicitaPresencia30s(arica);
             System.out.println("Click en Arica (ARI)");
             click(arica);
-
         }
     }
 
@@ -348,7 +348,9 @@ public class JetSmartHomePage extends SeleniumBase {
     }
 
 
+
     public void entrarFormularioHoteles(){
+
 
         //PASO 1. Click funcionalidad Hoteles
         click(hoteles);
@@ -356,14 +358,15 @@ public class JetSmartHomePage extends SeleniumBase {
     }
 
     public void formularioHotelesBuscar(){
+
         //Paso 2. Click en buscar se abre nueva ventana
         esperaExplicitaElToBeClickleable30s(buscarHoteles);
         click(buscarHoteles);
-
     }
 
     //Keyword driven
     public void formularioHotelesLugar(String lugarDestino){
+
         //PASO 2. Enviar dato "Miami" en input lugar de alojamiento
         limpiar(lugarHospedaje);
         type(lugarDestino,lugarHospedaje);
@@ -371,7 +374,6 @@ public class JetSmartHomePage extends SeleniumBase {
         //PASO 3. Click en primera opción del dropdown dinámico.
         esperaExplicitaElToBeClickleable30s(primerSelectLugarHospedaje);
         click(primerSelectLugarHospedaje);
-
     }
 
     public void formularioHotelesFechas(){
@@ -390,23 +392,10 @@ public class JetSmartHomePage extends SeleniumBase {
 
         //PASO 7. Click en fecha exacta checkOut (no mas de 30 noches de checkin). Mañana
         esperaExplicitaElToBeClickleable30s(fechaManana);
-        click(fechaManana);
-
-
     }
 
     public void buscarAlojamiento(){
         click(buscarHoteles);
     }
-
-
-
-
-
-
-
-
-
-
 
 }

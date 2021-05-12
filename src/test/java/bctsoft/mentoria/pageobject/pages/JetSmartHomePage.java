@@ -1,6 +1,6 @@
-package bctsoft.pageobject.pages;
+package bctsoft.mentoria.pageobject.pages;
 
-import bctsoft.pageobject.base.SeleniumBase;
+import bctsoft.mentoria.pageobject.base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

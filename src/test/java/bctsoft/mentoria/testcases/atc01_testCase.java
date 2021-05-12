@@ -1,7 +1,8 @@
-package bctsoft.testcases;
+package bctsoft.mentoria.testcases;
 
-import bctsoft.pageobject.pages.JetSmartHomePage;
+import bctsoft.mentoria.pageobject.pages.JetSmartHomePage;
 import org.testng.annotations.Test;
+
 
 public class atc01_testCase extends TestBase{
 
